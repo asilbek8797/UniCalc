@@ -1,5 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using System.ComponentModel.Design;
+using System.Xml;
+
 bool isContinue = true;
 
 while(isContinue is true)
@@ -9,6 +12,7 @@ while(isContinue is true)
     Console.WriteLine("1.Kalkulyator.");
     Console.WriteLine("2.Valyuta ayri boshlash.");
     Console.WriteLine("3.Yosh hisoblagich");
+    Console.WriteLine("4.Geometriya hisob-kitoblari");
 
     Console.Write("Commanda nomerini kiriting(1, 2 ..)");
     int command = Convert.ToInt32(Console.ReadLine());
@@ -109,6 +113,50 @@ while(isContinue is true)
         }
     }
     //command = 4
+    if (command == 4)
+    {
+        Console.Clear();
+        Console.WriteLine("=== Geometriya hisob-kitoblari ===");
+        Console.WriteLine("1. Aylananing yuzi");
+        Console.WriteLine("2. To'gri burchakli uchburchakning yuzi");
+        Console.WriteLine("3. To'rtburchakning yuzi");
+        Console.Write("Geometrik shakkilardan iborat kommandani kiriting: ");
+        int geometriyaCommand = Convert.ToInt32(Console.ReadLine());
+
+
+        if (geometriyaCommand == 1)
+        {
+            Console.Write("Aylananing radiusini kiriting: ");
+            double radius = Convert.ToDouble(Console.ReadLine());
+            double aylanaYuzi = Math.PI * Math.Pow(radius, 2);
+            Console.WriteLine("Aylananing yuzi: " + Math.Round(aylanaYuzi, 2));
+        }
+        else if(geometriyaCommand == 2)
+        {
+            Console.Write("a = ");
+            double a = Convert.ToDouble(Console.ReadLine());
+            Console.Write("b = ");
+            double b = Convert.ToDouble(Console.ReadLine());
+            double uchburchakYuzi = (a * b) / 2;
+            Console.WriteLine("To'gri burchakli uchburchakning yuzi: " + Math.Round(uchburchakYuzi, 2));
+        }
+        else if(geometriyaCommand == 3)
+        {
+            Console.Write("eni = ");
+            double eni = Convert.ToDouble(Console.ReadLine());
+            Console.Write("buyi = ");
+            double buyi = Convert.ToDouble(Console.ReadLine());
+            double tortburchakYuzi = eni * buyi;
+            Console.WriteLine("To'rtburchakning yuzi: " + Math.Round(tortburchakYuzi, 2));
+        }
+
+        Console.WriteLine("\nDavom etasizmi?(ha/yuq)");
+        string javob = Console.ReadLine();
+        if (javob.ToLower().Contains("yuq"))
+        {
+            isContinue = false;
+        }
+    }
     //Geometriya hisob-kitoblari
     //Aylana, uchburchak, to‘rtburchak va boshqa shakllarning yuzasi va perimetrini hisoblash.
     else
@@ -125,3 +173,4 @@ while(isContinue is true)
 }
 
 Console.WriteLine("Dastur o'z ishini yakunladi!");
+
